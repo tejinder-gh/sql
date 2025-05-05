@@ -1,6 +1,16 @@
 /* ASSIGNMENT 2 */
 /* SECTION 2 */
 
+Select * Employee;
+
+Select * Order;
+Select * Sales;
+Select * Customer;
+Select * Book;
+
+
+
+
 -- COALESCE
 /* 1. Our favourite manager wants a detailed long list of products, but is afraid of tables! 
 We tell them, no problem! We can produce a list with all of the appropriate details. 
@@ -91,13 +101,11 @@ HINT: There are a possibly a few ways to do this query, but if you're struggling
 "best day" and "worst day"; 
 3) Query the second temp table twice, once for the best day, once for the worst day, 
 with a UNION binding them. */
- SELECT
-        market_date,
-        SUM() AS total_daily_sales
-    FROM market_date_info 
-    GROUP BY market_date ;
 
-
+SELECT
+        market_date, 
+       max( quantity * cost_to_customer_per_qty) AS highest_sale, min(quantity * cost_to_customer_per_qty) as lowest_sale
+    FROM customer_purchases;
 
 /* SECTION 3 */
 
